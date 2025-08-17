@@ -6,9 +6,9 @@
     <title>Qianyi (Vicky) Liu | Personal Page</title>
     <style>
         body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #212529;
             background-color: #fff;
             margin: 0;
             padding: 20px;
@@ -17,14 +17,34 @@
             max-width: 850px;
             margin: 0 auto;
         }
-        header h1 {
-            font-size: 2.2em;
-            margin: 0;
-            font-weight: 500;
+        /* Header styles for photo and text alignment */
+        header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        header p {
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%; /* Makes the photo circular */
+            object-fit: cover; /* Prevents image stretching */
+            border: 2px solid #dee2e6;
+        }
+        .header-text h1 {
+            font-size: 2.2em;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+        .header-text p {
             margin: 5px 0;
-            color: #555;
+            color: #495057;
             font-size: 1.05em;
         }
         a {
@@ -35,53 +55,72 @@
             text-decoration: underline;
         }
         h2 {
-            font-size: 1.6em;
-            color: #333;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 8px;
-            margin-top: 40px;
-            font-weight: 500;
+            font-size: 1.8em;
+            color: #212529;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
-        .section {
-            margin-bottom: 20px;
-        }
-        .item {
-            margin-bottom: 20px;
-        }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        .item-subheader {
-            font-style: italic;
-            color: #666;
-            margin-top: 2px;
-        }
-        .item-content {
-            margin-top: 8px;
-            padding-left: 15px;
-        }
-        ul {
+        .section ul {
             list-style-type: none;
             padding-left: 0;
         }
-        ul.details-list {
+        .item {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .item-main {
+            flex-grow: 1;
+            padding-right: 15px;
+        }
+        .item-main .title {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        /* Style for the partial bolding request */
+        .item-main b {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .item-main .subtitle {
+            display: block;
+            margin-top: 4px;
+            color: #495057;
+            font-style: italic;
+        }
+        .item-main .details {
+            margin-top: 8px;
+            padding-left: 15px;
+            color: #495057;
+        }
+        .item-main .details ul {
             list-style-type: disc;
             padding-left: 20px;
+            margin-top: 5px;
         }
-        ul li {
-            margin-bottom: 5px;
+        .item .date {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            color: #6c757d;
+            font-size: 1em;
+            white-space: nowrap;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .sub-text {
+            color: #6c757d;
+            font-weight: normal;
         }
         .skills-list {
             list-style-type: none;
-            padding: 0;
-            margin: 0;
+            padding: 0; margin: 0;
         }
         .skills-list li {
             display: inline-block;
-            background-color: #e9ecef;
+            background-color: #f1f3f5;
             color: #343a40;
             padding: 5px 12px;
             border-radius: 15px;
@@ -91,25 +130,25 @@
         }
 
         /* Responsive design for mobile screens */
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            header h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
-            }
-            .item-header {
+        @media (max-width: 650px) {
+            header {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .item-header .date {
-                margin-top: 4px;
-                font-weight: normal;
-                font-size: 0.9em;
-                color: #555;
+            .profile-photo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 25px;
+            }
+            .item .date {
+                text-align: left;
+                padding-left: 0;
+                margin-top: 5px;
+                color: #495057;
             }
         }
     </style>
@@ -118,110 +157,132 @@
 
     <div class="container">
         <header>
-            <h1>Qianyi (Vicky) Liu</h1>
-            <p>Tel: (852) 5600-6612 | Email: <a href="mailto:vkliu79@outlook.com">vkliu79@outlook.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/qianyi-liu-vicky" target="_blank">linkedin.com/in/qianyi-liu-vicky</a></p>
+            <div class="profile-photo">
+                <!-- 照片已链接到你上传的文件 -->
+                <img src="vicky%20profile%20photo.JPG" alt="Profile Photo of Qianyi Vicky Liu">
+            </div>
+            <div class="header-text">
+                <h1>Qianyi (Vicky) Liu</h1>
+                <p>Tel: (852) 5600-6612 | Email: <a href="mailto:vkliu79@outlook.com">vkliu79@outlook.com</a> | LinkedIn: <a href="https://www.linkedin.com/in/qianyi-liu-vicky" target="_blank">www.linkedin.com/in/qianyi-liu-vicky</a></p>
+            </div>
         </header>
 
         <section class="section" id="education">
             <h2>Education</h2>
             <ul>
                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Hong Kong University of Science and Technology</b> (HKSAR)</span>
-                        <span class="date">Sep. 2025 – Dec. 2026 (Expected)</span>
+                    <div class="item-main">
+                        <span class="title">Hong Kong University of Science and Technology <span class="sub-text">(HKSAR)</span></span>
+                        <span class="subtitle">Master of Science (MSc) in Technology Leadership and Entrepreneurship</span>
                     </div>
-                    <div class="item-subheader">Master of Science (MSc) in Technology Leadership and Entrepreneurship</div>
+                    <div class="date">Sep. 2025 – Dec. 2026 <span class="sub-text">(Expected)</span></div>
                 </li>
                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Hong Kong Baptist University</b> (HKSAR)</span>
-                        <span class="date">Sep. 2021 – May 2025</span>
+                    <div class="item-main">
+                        <span class="title">Hong Kong Baptist University <span class="sub-text">(HKSAR)</span></span>
+                        <span class="subtitle">Bachelor of Business Administration (Hons) in Finance, Minor in Psychology</span>
+                        <div class="details">
+                            <ul>
+                                <li>Academic Honors: Dean’s List (2021-2022, 2023-2025); President’s Honor Roll (2022-2023)</li>
+                                <li>Relevant Coursework: Data Analysis (Excel, Python, R), Corporate Finance, Economics</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="item-subheader">Bachelor of Business Administration (Hons) in Finance, Minor in Psychology</div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li><b>Academic Honors:</b> Dean’s List (2021-2022, 2023-2025); President’s Honor Roll (2022-2023)</li>
-                            <li><b>Relevant Coursework:</b> Data Analysis (Excel, Python, R), Corporate Finance, Economics</li>
-                        </ul>
-                    </div>
+                    <div class="date">Sep. 2021 – May 2025</div>
                 </li>
                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Technical University of Munich</b> (Germany)</span>
-                        <span class="date">Apr. 2024 – Aug. 2024</span>
+                    <div class="item-main">
+                        <span class="title">Technical University of Munich <span class="sub-text">(Germany)</span></span>
+                        <span class="subtitle">Semester Exchange, Management and Technology</span>
+                        <div class="details">
+                            <ul>
+                                <li>Relevant Coursework: Technology and Innovation Management, Psychology in Organizations</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="item-subheader">Semester Exchange, Management and Technology</div>
-                     <div class="item-content">
-                        <ul class="details-list">
-                            <li><b>Relevant Coursework:</b> Technology and Innovation Management, Psychology in Organizations</li>
-                        </ul>
-                    </div>
+                    <div class="date">Apr. 2024 – Aug. 2024</div>
                 </li>
-                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Short-Term Learning Experiences</b></span>
-                    </div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li><b>Berlin School of Economics and Law:</b> Institutions & Law in EU (Jun – Jul 2025)</li>
-                            <li><b>Nanyang Technological University:</b> Cultural Intelligence (Jun – Jul 2023)</li>
-                            <li><b>Fudan University:</b> Development Economics, China’s Economy (Jul – Aug 2022)</li>
-                        </ul>
+                <li class="item">
+                    <div class="item-main">
+                        <span class="title">Short-Term Learning Experiences</span>
+                        <div class="details">
+                            <ul>
+                                <li>Jun. – Jul. 2025: Exchange at Berlin School of Economics and Law studying Institutions & Law in EU</li>
+                                <li>Jun. – Jul. 2023: Exchange at Nanyang Technological University studying Cultural Intelligence</li>
+                                <li>Jul. – Aug. 2022: Exchange at Fudan University studying Development Economics, China’s Economy</li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
             </ul>
         </section>
 
         <section class="section" id="experience">
-            <h2>Experience</h2>
+            <h2>Entrepreneurial Experience</h2>
             <ul>
                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Co-Founder & COO & CFO</b>, BioLeisure Co., Limited</span>
-                        <span class="date">Oct. 2022 – Present</span>
+                    <div class="item-main">
+                        <span class="title">Co-Founder & COO & CFO</span>
+                        <span class="subtitle">BioLeisure Co., Limited</span>
+                        <div class="details">
+                            <ul>
+                                <li>Founded a 10-member interdisciplinary team from the ground, leading in the development of an AI NPC role-playing mobile app using Unity and AR Foundation.</li>
+                                <li>Secured seed funds (HK$100,000) and ideation from HKSTP.</li>
+                                <li>Enhanced local ecology and conservation understanding, boosted engagement by 60% and increased community conservation awareness by 45%; received many awards and funds.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li>Founded a 10-member interdisciplinary team, leading development of an AI NPC role-playing mobile app using Unity and AR Foundation.</li>
-                            <li>Secured seed funds (HK$100,000) and ideation from HKSTP.</li>
-                            <li>Enhanced local ecology understanding, boosting engagement by 60% and increasing community conservation awareness by 45%.</li>
-                        </ul>
+                    <div class="date">Oct. 2022 – Present</div>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="section" id="research">
+            <h2>Research Experience</h2>
+            <ul>
+                <li class="item">
+                    <div class="item-main">
+                        <span class="title">Research Assistant</span>
+                        <span class="subtitle">Hong Kong Baptist University, School of Business</span>
+                        <div class="details">
+                            <ul>
+                                <li>Participated in the data collection phase of a research project led by Dr. Xiaodong Zhao, investigating the impact of the number of patents on profitability in US private firms.</li>
+                                <li>Conducted due diligence on 2,033 US private companies, compiled data on patent numbers and annual income for regression analysis, and conducted competitiveness analysis to identify potential risk factors.</li>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="date">Nov. 2023 – Feb. 2024</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section" id="internships">
+            <h2>Internship Experience</h2>
+            <ul>
+                <li class="item">
+                    <div class="item-main">
+                        <span class="title">Global Transaction Banking Intern</span>
+                        <span class="subtitle">Shanghai Pudong Development Bank</span>
+                        <div class="details">
+                            <ul>
+                                <li>Conducted market studies and industry research for the Global Transaction Banking team.</li>
+                                <li>Collected and organized large datasets using text mining techniques; performed statistical analysis in Excel for detailed reporting; Delivered insights to support decision-making in banking operations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="date">Aug. 2023</div>
                 </li>
                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Research Assistant</b>, Hong Kong Baptist University</span>
-                        <span class="date">Nov. 2023 – Feb. 2024</span>
+                    <div class="item-main">
+                        <span class="title">Leadership Project Coordinator Intern</span>
+                        <span class="subtitle">Seer Doer Edu & Sci-Tech Center</span>
+                        <div class="details">
+                            <ul>
+                                <li>Developed 16 leadership course materials, led successful enrolment promotions with over 30 registrations, and conducted 8 well-received training sessions for teenagers, earning a Reference Letter from the managing partner.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li>Participated in a research project led by Dr. Xiaodong Zhao on the impact of patents on profitability in US private firms.</li>
-                            <li>Conducted due diligence on 2,033 US private companies, compiled data for regression analysis, and performed competitiveness analysis.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="item">
-                    <div class="item-header">
-                        <span><b>Global Transaction Banking Intern</b>, Shanghai Pudong Development Bank</span>
-                        <span class="date">Aug. 2023</span>
-                    </div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li>Conducted market studies and industry research for the Global Transaction Banking team.</li>
-                            <li>Collected and organized large datasets using text mining; performed statistical analysis in Excel to support decision-making.</li>
-                        </ul>
-                    </div>
-                </li>
-                 <li class="item">
-                    <div class="item-header">
-                        <span><b>Leadership Project Coordinator Intern</b>, Seer Doer Edu & Sci-Tech Center</span>
-                        <span class="date">Jun. 2022 – Aug. 2022</span>
-                    </div>
-                    <div class="item-content">
-                        <ul class="details-list">
-                            <li>Developed 16 leadership course materials, led promotions with over 30 registrations, and conducted 8 training sessions for teenagers.</li>
-                        </ul>
-                    </div>
+                    <div class="date">Jun. 2022 – Aug. 2022</div>
                 </li>
             </ul>
         </section>
@@ -229,35 +290,35 @@
         <section class="section" id="awards">
             <h2>Awards & Competitions</h2>
             <ul>
-                <li><div class="item-header"><span>HKSTP Ideation (HK$100,000)</span><span class="date">2024</span></div></li>
-                <li><div class="item-header"><span>Champion (RMB 42,000), Greater Bay Area Youth Innovation Competition</span><span class="date">2024</span></div></li>
-                <li><div class="item-header"><span>Champion (HK$30,000), Startup Saturday Competition</span><span class="date">2024</span></div></li>
-                <li><div class="item-header"><span>Best Validation Award (HK$14,000), Techstars Startup Weekend</span><span class="date">2024</span></div></li>
-                <li><div class="item-header"><span>Best Prototyping Award (HK$5,000), Young Creative Entrepreneur Award</span><span class="date">2024</span></div></li>
-                <li><div class="item-header"><span>Champion (HK$6,000), Social Innovation Maker Programme</span><span class="date">2022</span></div></li>
-                <li><div class="item-header"><span>Top 8 Finalist, HKPMI Project Management Case Competition</span><span class="date">2024</span></div></li>
+                <li class="item"><div class="item-main"><b>HKSTP Ideation (HK$100,000)</b>, 2024 Hong Kong Science and Technology Parks Corporation, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Champion (RMB 42,000)</b>, 2024 Greater Bay Area Youth Innovation Competition, China</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Champion (HK$30,000)</b>, 2024 Startup Saturday Competition, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Best Validation Award (HK$14,000)</b>, 2024 Techstars Startup Weekend, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Best Prototyping Award (HK$5,000)</b>, 2024 Young Creative Entrepreneur Award, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Champion (HK$6,000)</b>, 2022 Social Innovation Maker Programme, HKSAR</div><div class="date">2022</div></li>
+                <li class="item"><div class="item-main"><b>Top 8 Finalist</b>, 2024 HKPMI Project Management Case Competition, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Semi-Finalist</b>, 2024 Hong Kong Social Enterprise Challenge</div></li>
             </ul>
         </section>
 
         <section class="section" id="leadership">
             <h2>Leadership & Activities</h2>
             <ul>
-                <li><div class="item-header"><span>Startup Founder Representative</span><span class="date">Boao Forum for Asia & Meet Taipei Startup Festival, 2024</span></div></li>
-                <li><div class="item-header"><span>Senate Member, Hong Kong Baptist University</span><span class="date">2024-25</span></div></li>
-                <li><div class="item-header"><span>University Innovation Fellow, Stanford University d.School Program</span><span class="date">2023-24</span></div></li>
-                <li><div class="item-header"><span>President, HKBU Sustainable Educational Service Group</span><span class="date">2022-23</span></div></li>
-                <li><div class="item-header"><span>Mental Health First Aid Captain, HKBU</span><span class="date">2022-23</span></div></li>
+                <li class="item"><div class="item-main"><b>Startup Founder Representative</b>, 2024 Boao Forum for Asia Youth Forum Hong Kong, HKSAR</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Startup Founder Representative</b>, 2024 Meet Taipei Startup Festival Taiwan, Taiwan</div><div class="date">2024</div></li>
+                <li class="item"><div class="item-main"><b>Senate Member</b>, 2024-25 Hong Kong Baptist University, HKSAR</div><div class="date">2024-25</div></li>
+                <li class="item"><div class="item-main"><b>University Innovation Fellow</b>, 2023-24 UIF Program by Stanford University d.School, Netherlands</div><div class="date">2023-24</div></li>
+                <li class="item"><div class="item-main"><b>President</b>, 2022-23 HKBU Sustainable Educational Service Group, HKSAR</div><div class="date">2022-23</div></li>
+                <li class="item"><div class="item-main"><b>Mental Health First Aid Captain</b>, 2022-23 Hong Kong Baptist University, HKSAR</div><div class="date">2022-23</div></li>
             </ul>
         </section>
 
         <section class="section" id="skills">
             <h2>Skills</h2>
             <ul class="skills-list">
-                <li>Microsoft Office</li>
-                <li>Excel</li>
-                <li>PowerPoint</li>
-                <li>Python</li>
+                <li>Microsoft Office (Word, Excel, PowerPoint)</li>
                 <li>R</li>
+                <li>Python</li>
                 <li>Bloomberg</li>
                 <li>Mandarin (Native)</li>
                 <li>English (Advanced)</li>
@@ -275,7 +336,6 @@
                 <li>Cycling</li>
             </ul>
         </section>
-
     </div>
 
 </body>
